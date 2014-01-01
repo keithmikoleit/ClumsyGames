@@ -5,12 +5,12 @@ import com.badlogic.gdx.utils.Array;
 
 public class World {
 	/** The blocks making up the world **/
-	Array blocks = new Array();
+	Array<Block> blocks = new Array<Block>();
 	/** Our player controlled hero **/
 	Bob bob;
 	
 	// Getters ----------------------
-	public Array getBlocks(){
+	public Array<Block> getBlocks(){
 		return blocks;
 	}
 	
@@ -22,14 +22,13 @@ public class World {
 		createDemoWorld();
 	}
 	
-	@SuppressWarnings("unchecked")
 	private void createDemoWorld(){
 		bob = new Bob(new Vector2(7,2));
 		
 		// create border blocks
 		for (int i = 0; i < 10; i++){
 		      blocks.add(new Block(new Vector2(i, 0)));                       
-		      blocks.add(new Block(new Vector2(i, 7)));		
+		      blocks.add(new Block(new Vector2(i, 6)));		
 		      if (i > 2){
 	                blocks.add(new Block(new Vector2(i, 1)));
 		      }

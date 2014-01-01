@@ -25,4 +25,12 @@ public class Bob {
 		this.bounds.height = SIZE;
 		this.bounds.width = SIZE;
 	}
+	
+	public Rectangle getBounds(){
+		return bounds;
+	}
+	
+	public Vector2 getPosition(){
+		return position;
+	}
 }
