@@ -5,14 +5,14 @@ import com.badlogic.gdx.math.Vector2;
 
 public class Block {
 	
-	static final float SIZE = 1f;
+	private static final float SIZE = 1f;
 	Vector2 position = new Vector2();
 	Rectangle bounds = new Rectangle();
 	
 	public Block(Vector2 pos){
 		this.position = pos;
-		this.bounds.width = SIZE;
-		this.bounds.height = SIZE;
+		this.bounds.width = getSize();
+		this.bounds.height = getSize();
 	}
 	
 	public Rectangle getBounds(){
@@ -21,6 +21,10 @@ public class Block {
 	
 	public Vector2 getPosition(){
 		return position;
+	}
+
+	public static float getSize() {
+		return SIZE;
 	}
 	
 }
