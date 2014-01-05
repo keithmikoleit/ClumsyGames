@@ -13,6 +13,8 @@ public class Bob {
 	static final float JUMP_VELOCITY = 1f;
 	private static final float SIZE = 0.5f; // half a unit
 	
+	float stateTime = 0;
+	
 	Vector2 position = new Vector2();
 	Vector2 acceleration = new Vector2();
 	Vector2 velocity = new Vector2();
@@ -32,6 +34,7 @@ public class Bob {
 	}
 	
 	public void update(float delta) {
+		stateTime += delta;
 		position.add(velocity.cpy().scl(delta));
 	}
 	
@@ -57,5 +60,21 @@ public class Bob {
 	
 	public Vector2 getAcceleration(){
 		return acceleration;
+	}
+	
+	public void setFacingLeft(boolean status){
+		facingLeft = status;
+	}
+	
+	public boolean isFacingLeft(){
+		return facingLeft;
+	}
+
+	public State getState() {
+		return state;
+	}
+
+	public float getStateTime() {
+		return stateTime;
 	}
 }
