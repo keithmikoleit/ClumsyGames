@@ -77,4 +77,8 @@ public class Bob {
 	public float getStateTime() {
 		return stateTime;
 	}
+
+	public void setPosition(Vector2 position2) {
+		position = position2;
+	}
 }

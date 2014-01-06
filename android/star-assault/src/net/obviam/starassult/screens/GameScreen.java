@@ -1,6 +1,6 @@
 package net.obviam.starassult.screens;
 
-import net.obviam.starassult.controller.WorldController;
+import net.obviam.starassult.controller.BobController;
 import net.obviam.starassult.model.World;
 import net.obviam.starassult.view.WorldRenderer;
 
@@ -15,7 +15,7 @@ public class GameScreen implements Screen, InputProcessor {
 
 	private World 			world;
 	private WorldRenderer 	renderer;
-	private WorldController	controller;
+	private BobController	controller;
 
 	private int width, height;
 
@@ -23,7 +23,7 @@ public class GameScreen implements Screen, InputProcessor {
 	public void show() {
 		world = new World();
 		renderer = new WorldRenderer(world, false);
-		controller = new WorldController(world);
+		controller = new BobController(world);
 		Gdx.input.setInputProcessor(this);
 	}
 
@@ -108,6 +108,9 @@ public class GameScreen implements Screen, InputProcessor {
 		if (x > width / 2 && y > height / 2) {
 			controller.rightPressed();
 		}
+		if (y < height / 2){
+			controller.jumpPressed();
+		}
 		return true;
 	}
 
@@ -121,6 +124,9 @@ public class GameScreen implements Screen, InputProcessor {
 		}
 		if (x > width / 2 && y > height / 2) {
 			controller.rightReleased();
+		}
+		if (y < height / 2){
+			controller.jumpReleased();
 		}
 		return true;
 	}
